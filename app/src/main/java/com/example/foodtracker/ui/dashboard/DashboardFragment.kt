@@ -88,7 +88,11 @@ class DashboardFragment : Fragment() {
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
         val formattedDate = dateTime.format(formatter)
 
-        nameTextView.text = "Name: $name"
+        if (name != null) {
+            nameTextView.text = "Name: $name"
+        } else {
+            nameTextView.text = "Name: please register to add name"
+        }
         dateTextView.text = "Date: $formattedDate"
 
         cameraButton.setOnClickListener { openCamera() }
@@ -97,7 +101,8 @@ class DashboardFragment : Fragment() {
         postButton.setOnClickListener {
             val foodName = foodNameEditText.text.toString()
             val description = descriptionEditText.text.toString()
-            if (name != null && selectedImageUri != Uri.EMPTY && foodName.isNotBlank()) {
+
+            if (selectedImageUri != Uri.EMPTY && foodName.isNotBlank()) {
                 savePost(name, selectedImageUri.toString(), foodName, description, formattedDate)
                 findNavController().navigate(R.id.action_dashboardFragment_to_homeFragment)
             } else {
@@ -176,10 +181,11 @@ class DashboardFragment : Fragment() {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun savePost(name: String, photoUri: String, foodName: String, description: String, date: String) {
+    private fun savePost(name: String?, photoUri: String, foodName: String, description: String, date: String) {
+        val postName = name ?: "Anonymous"
         val post = Post(
             id = 0,
-            name = name,
+            name = postName,
             photoUri = photoUri,
             foodName = foodName,
             description = description,
