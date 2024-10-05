@@ -31,17 +31,28 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+        //inisialisasi database
+        database = Room.databaseBuilder(
+            requireContext(),
+            AppDatabase::class.java, "app_database"
+        ).build()
+
+        //inisialisasi recyclerview
         recyclerView = view.findViewById(R.id.recyclerView)
 
         // Set LinearLayoutManager
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true) // Mengoptimalkan ukuran jika item RecyclerView memiliki ukuran tetap
 
-        database = Room.databaseBuilder(
-            requireContext(),
-            AppDatabase::class.java, "app_database"
-        ).build()
+        //postList sementara supaya tidak error
+        postList = listOf()
 
+        //inisialisasi adapter
+        postAdapter = PostAdapter(requireContext(), postList)
+        recyclerView.adapter = postAdapter
+
+        //Load data
         loadPosts()
 
         return view

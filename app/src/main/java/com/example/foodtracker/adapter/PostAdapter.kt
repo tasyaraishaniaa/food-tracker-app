@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-//import com.example.foodtracker.DetailFoodActivity
+import com.example.foodtracker.DetailFoodActivity
 import com.example.foodtracker.R
 import com.example.foodtracker.data.model.Post
 
@@ -37,16 +37,16 @@ class PostAdapter(
         holder.postDateTextView.text = post.date
         holder.postImageView.setImageURI(Uri.parse(post.photoUri))
 
-//        // Menambahkan klik listener pada item
-//        holder.itemView.setOnClickListener {
-//            val intent = Intent(context, DetailFoodActivity::class.java).apply {
-//                putExtra("foodName", post.foodName)
-//                putExtra("description", post.description)
-//                putExtra("photoUri", post.photoUri)
-//                putExtra("date", post.date)
-//            }
-//            context.startActivity(intent)
-//        }
+        // Menambahkan klik listener pada item
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, DetailFoodActivity::class.java).apply {
+                putExtra("foodName", post.foodName)
+                putExtra("description", post.description)
+                putExtra("photoUri", post.photoUri)
+                putExtra("date", post.date)
+            }
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int = postList.size
