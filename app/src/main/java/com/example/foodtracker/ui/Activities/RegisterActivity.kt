@@ -1,4 +1,4 @@
-package com.example.foodtracker
+package com.example.foodtracker.ui.Activities
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.foodtracker.R
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -30,7 +31,7 @@ class RegisterActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE)
 
         registerButton.setOnClickListener {
-            performRegistration()
+            register()
         }
 
         loginButton.setOnClickListener {
@@ -39,7 +40,7 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun performRegistration() {
+    private fun register() {
         val name = nameEditText.text.toString()
         val email = emailEditText.text.toString()
         val password = passwordEditText.text.toString()

@@ -16,7 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- EditText untuk Nama -->
         <EditText
             android:id="@+id/nameEditText"
             android:layout_width="match_parent"
@@ -24,7 +23,6 @@
             android:hint="Name"
             android:inputType="textPersonName" />
 
-        <!-- EditText untuk Email -->
         <EditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
@@ -32,7 +30,6 @@
             android:hint="Email"
             android:inputType="textEmailAddress" />
 
-        <!-- EditText untuk Password -->
         <EditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
@@ -40,14 +37,12 @@
             android:hint="Password"
             android:inputType="textPassword" />
 
-        <!-- Tombol Register -->
         <Button
             android:id="@+id/registerButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Register" />
 
-        <!-- Tombol Login -->
         <Button
             android:id="@+id/loginButton"
             android:layout_width="match_parent"

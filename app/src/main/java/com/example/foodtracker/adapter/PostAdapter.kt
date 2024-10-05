@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.foodtracker.DetailFoodActivity
+import com.example.foodtracker.ui.Activities.DetailFoodActivity
 import com.example.foodtracker.R
 import com.example.foodtracker.data.model.Post
 

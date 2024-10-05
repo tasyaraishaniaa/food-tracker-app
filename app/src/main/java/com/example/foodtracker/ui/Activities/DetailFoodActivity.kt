@@ -1,10 +1,11 @@
-package com.example.foodtracker
+package com.example.foodtracker.ui.Activities
 
 import android.net.Uri
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.foodtracker.R
 
 class DetailFoodActivity : AppCompatActivity() {
 
@@ -17,19 +18,16 @@ class DetailFoodActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_food)
 
-        // Inisialisasi view menggunakan findViewById setelah setContentView dipanggil
         foodNameTextView = findViewById(R.id.foodNameTextView)
         descriptionTextView = findViewById(R.id.descriptionTextView)
         postDateTextView = findViewById(R.id.postDateTextView)
         postImageView = findViewById(R.id.postImageView)
 
-        // Mendapatkan data dari intent
         val foodName = intent.getStringExtra("foodName")
         val description = intent.getStringExtra("description")
         val photoUri = intent.getStringExtra("photoUri")
         val date = intent.getStringExtra("date")
 
-        // Memeriksa apakah view telah di-inisialisasi dengan benar
         if (foodName != null) {
             foodNameTextView.text = foodName
         }

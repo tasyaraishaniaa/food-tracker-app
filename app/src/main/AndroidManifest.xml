@@ -16,7 +16,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.Activities.LoginActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
@@ -26,17 +26,17 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.Activities.MainActivity"
             android:exported="true"
             android:label="@string/app_name" />
 
         <activity
-            android:name=".RegisterActivity"
+            android:name=".ui.Activities.RegisterActivity"
             android:exported="true"
             android:label="@string/app_name" />
 
         <activity
-            android:name=".DetailFoodActivity"
+            android:name=".ui.Activities.DetailFoodActivity"
             android:exported="true"
             android:label="@string/app_name" />
 

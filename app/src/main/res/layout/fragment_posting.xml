@@ -5,7 +5,6 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Displaying the User's Name -->
     <TextView
         android:id="@+id/nameTextView"
         android:layout_width="wrap_content"
@@ -16,7 +15,6 @@
         android:layout_gravity="start"
         android:paddingBottom="8dp" />
 
-    <!-- Displaying the current date -->
     <TextView
         android:id="@+id/dateTextView"
         android:layout_width="wrap_content"
@@ -26,7 +24,6 @@
         android:layout_gravity="start"
         android:paddingBottom="16dp" />
 
-    <!-- ImageView to display the selected image -->
     <ImageView
         android:id="@+id/selectedImageView"
         android:layout_width="200dp"
@@ -37,7 +34,6 @@
         android:layout_marginBottom="16dp"
         android:background="#E0E0E0" />
 
-    <!-- Camera Button to open the camera -->
     <Button
         android:id="@+id/cameraButton"
         android:layout_width="match_parent"
@@ -45,7 +41,6 @@
         android:text="Take Photo"
         android:layout_marginBottom="8dp" />
 
-    <!-- Gallery Button to open the gallery -->
     <Button
         android:id="@+id/galleryButton"
         android:layout_width="match_parent"
@@ -53,7 +48,6 @@
         android:text="Choose from Gallery"
         android:layout_marginBottom="16dp" />
 
-    <!-- EditText to input the food name -->
     <EditText
         android:id="@+id/foodNameEditText"
         android:layout_width="match_parent"
@@ -62,7 +56,6 @@
         android:inputType="text"
         android:layout_marginBottom="8dp" />
 
-    <!-- EditText to input the description -->
     <EditText
         android:id="@+id/descriptionEditText"
         android:layout_width="match_parent"
@@ -71,7 +64,6 @@
         android:inputType="textMultiLine"
         android:layout_marginBottom="16dp" />
 
-    <!-- Button to save the post -->
     <Button
         android:id="@+id/postButton"
         android:layout_width="match_parent"

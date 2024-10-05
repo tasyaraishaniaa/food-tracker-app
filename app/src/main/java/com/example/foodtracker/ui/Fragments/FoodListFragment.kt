@@ -1,4 +1,4 @@
-package com.example.foodtracker.ui.home
+package com.example.foodtracker.ui.Fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -18,7 +18,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class HomeFragment : Fragment() {
+class FoodListFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var postAdapter: PostAdapter
@@ -30,29 +30,23 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_home, container, false)
+        val view = inflater.inflate(R.layout.fragment_food_list, container, false)
 
-        //inisialisasi database
         database = Room.databaseBuilder(
             requireContext(),
             AppDatabase::class.java, "app_database"
         ).build()
 
-        //inisialisasi recyclerview
         recyclerView = view.findViewById(R.id.recyclerView)
 
-        // Set LinearLayoutManager
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.setHasFixedSize(true) // Mengoptimalkan ukuran jika item RecyclerView memiliki ukuran tetap
+        recyclerView.setHasFixedSize(true)
 
-        //postList sementara supaya tidak error
         postList = listOf()
 
-        //inisialisasi adapter
         postAdapter = PostAdapter(requireContext(), postList)
         recyclerView.adapter = postAdapter
 
-        //Load data
         loadPosts()
 
         return view
@@ -61,7 +55,7 @@ class HomeFragment : Fragment() {
 
     private fun loadPosts() {
         CoroutineScope(Dispatchers.IO).launch {
-            postList = database.postDao().getAllPosts() // Mendapatkan data dari database
+            postList = database.postDao().getAllPosts()
             withContext(Dispatchers.Main) {
                 postAdapter = PostAdapter(requireContext(), postList)
                 recyclerView.adapter = postAdapter

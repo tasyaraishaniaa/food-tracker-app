@@ -1,4 +1,4 @@
-package com.example.foodtracker.ui.dashboard
+package com.example.foodtracker.ui.Fragments
 
 import android.Manifest
 import android.app.Activity
@@ -35,7 +35,7 @@ import java.io.FileOutputStream
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-class DashboardFragment : Fragment() {
+class PostingFragment : Fragment() {
 
     private val REQUEST_CODE_PERMISSIONS = 100
     private val REQUIRED_PERMISSIONS = arrayOf(
@@ -65,7 +65,7 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
+        val view = inflater.inflate(R.layout.fragment_posting, container, false)
 
         database = Room.databaseBuilder(
             requireContext(),
@@ -91,7 +91,7 @@ class DashboardFragment : Fragment() {
         if (name != null) {
             nameTextView.text = "Name: $name"
         } else {
-            nameTextView.text = "Name: please register to add name"
+            nameTextView.text = "Name: Unknown"
         }
         dateTextView.text = "Date: $formattedDate"
 
@@ -182,10 +182,9 @@ class DashboardFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun savePost(name: String?, photoUri: String, foodName: String, description: String, date: String) {
-        val postName = name ?: "Anonymous"
         val post = Post(
             id = 0,
-            name = postName,
+            name = name,
             photoUri = photoUri,
             foodName = foodName,
             description = description,
@@ -196,13 +195,13 @@ class DashboardFragment : Fragment() {
             try {
                 database.postDao().insertPost(post)
             } catch (e: Exception) {
-                e.printStackTrace() // Log the error
+                e.printStackTrace()
             }
         }
     }
 
     private fun getName(): String? {
         val sharedPreferences = requireActivity().getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
-        return sharedPreferences.getString("name", null)
+        return sharedPreferences.getString("name", "Unknown")
     }
 }

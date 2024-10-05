@@ -10,7 +10,6 @@
         android:padding="16dp"
         android:gravity="center">
 
-        <!-- Email EditText -->
         <EditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
@@ -20,7 +19,6 @@
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
-        <!-- Password EditText -->
         <EditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
@@ -30,7 +28,6 @@
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
-        <!-- Login Button -->
         <Button
             android:id="@+id/loginButton"
             android:layout_width="match_parent"
@@ -40,7 +37,6 @@
             android:layout_marginBottom="16dp"
             />
 
-        <!-- Register Button -->
         <Button
             android:id="@+id/registerButton"
             android:layout_width="match_parent"

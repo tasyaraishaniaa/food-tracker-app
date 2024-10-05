@@ -1,4 +1,4 @@
-package com.example.foodtracker.ui.notifications
+package com.example.foodtracker.ui.Fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.foodtracker.R
 
-class NotificationsFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
     private lateinit var profileImageView: ImageView
     private lateinit var nameTextView: TextView
@@ -20,13 +20,13 @@ class NotificationsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_notifications, container, false)
+        val view = inflater.inflate(R.layout.fragment_profile, container, false)
         profileImageView = view.findViewById(R.id.profileImageView)
         nameTextView = view.findViewById(R.id.nameTextView)
         emailTextView = view.findViewById(R.id.emailTextView)
 
         val sharedPref = requireContext().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
-        val name = sharedPref.getString("name", null)
+        val name = sharedPref.getString("name", "Unknown")
         val email = sharedPref.getString("email", null)
 
         nameTextView.text = "$name"
